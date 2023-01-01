@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { NormalNumb, Control } from "./Styles/NumberStyle";
+import { NormalNumb, Control, MainDisplay } from "./Styles/NumberStyle";
 
-const Numbers = () => {
+const Numbers = ({ inactive = false }) => {
   const [number, setNumber] = useState(0);
 
   const numberFunc = (type) => {
@@ -18,9 +18,9 @@ const Numbers = () => {
   };
 
   return (
-    <NormalNumb>
+    <NormalNumb inactive={inactive}>
       <Control onClick={() => numberFunc("decrease")}>-</Control>
-      <div>{number} people</div>
+      <MainDisplay>{number} people</MainDisplay>
       <Control onClick={() => numberFunc()}>+</Control>
     </NormalNumb>
   );
